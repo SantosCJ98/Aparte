@@ -1,20 +1,28 @@
 package paquete;
 
+import java.util.Arrays;
+
 public class Clase {
 
 	public static int [] filtrar(int[] miarray, Filtro condicion) {
+		
+		int [] res = new int [miarray.length];
+		
+		int contador = 0;
 
 		for (int i = 0; i < miarray.length; i++) {
 
 			if (condicion.par(i)) {
 
-				System.out.println(miarray[i]);
+				res[contador] = miarray[i];
+				
+				contador++;
 
 			}
 
 		}
 		
-		return miarray;
+		return Arrays.copyOf(res, contador);
 
 	}
 
@@ -34,7 +42,7 @@ public class Clase {
 //			
 //		});
 
-		filtrar(miarray, indice -> miarray[indice]%2 == 0);
+		System.out.println(Arrays.toString(filtrar(miarray, indice -> miarray[indice]%2 == 0)));
 		
 		
 	}
